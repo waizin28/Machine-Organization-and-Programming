@@ -1,0 +1,87 @@
+SUMMARY:
+
+    This is the codebase for CS354 Project 4 Testing.
+    It tests two student functions (Alloc and Free) using multiple drivers.
+    All drivers function by calling one or both of the student functions 
+    after some initial setup. 
+
+    There are 
+
+CONTENTS:
+
+-   Makefile
+-   README (this file)
+-   drivers
+    -   alloc_multiple.c
+    -   alloc_single.c
+    -   coalesce_left.c
+    -   coalesce_right.c
+    -   driver_free.c
+    -   free_single.c
+    -   stress_free.c
+-   src
+    -   mem.h
+    -   mem_init.c
+    -   mem_solution.c
+
+USAGE INSTRUCTIONS:
+
+-   Make sure you are on a CSL machine.
+
+-   Copy the contents of this folder entirely to a folder containing your solution file.
+
+-   Rename your file to "solution.c". Submissions were of the form xyz_mem_functions.c
+
+-   Run "make setup" - this will copy the source files over correctly
+
+-   Run "make all" - this will compile the executables correctly
+
+-   Run "make alltests -i" - this will run the executable against all the tests and collect output
+    in files named x_output.txt
+
+-   The output files contain the output of Mem_Dump for the student method followed by Mem_Dump 
+    for the solutions. These two are always separated by the string "<BREAK>\n".
+    You can compare these in multiple ways:
+
+    Python3-
+    ############################
+    x = open( "AS1_output.txt" )
+    r = x.read()
+    p = x.split("<BREAK>\n")
+    p[0] == p[1]
+    ############################
+
+    Bash-
+    ############################
+    awk '/<BREAK>/ {p=1;next} p==1 {print}' AS1_output.txt > as1_student
+    awk '{if (match($0,"<BREAK>")) exit; print}' AS1_output.txt >as1_sol
+    diff as1_student as1_sol
+    ############################
+
+
+-   Run "make clean" after running these tests, to clear out all the test output and to start testing 
+    again. If you do not run this, and test your code twice, the output files will be added to and not
+    rewritten. 
+
+TEST CASE DESCRIPTION: 
+
+-   There are 10 test cases in total, each worth 5 points
+
+-   There are 7 executables in total (AM, AS, FS, CL, CR, SF, D )
+
+-   AM has 3 test cases (AM1, AM2, AM3) while AS has 2 test cases (AS1, AS2)
+
+-   Every other executable corresponds to a single test case
+
+-   The test case code can be found in the corresponding .c files in drivers/
+    -   AS  :   alloc_single.c
+    -   AM  :   alloc_multiple.c
+    -   FS  :   free_single.c
+    -   CL  :   coalesce_left.c
+    -   CR  :   coalesce_right.c
+    -   D   :   driver_free.c
+    -   SF  :   stress_free.c
+
+-   Each test case tries to either allocate or free or do both using the student methods. It 
+    may use our methods also, depending on the exact test case. For example, a test case
+    for Alloc (AM, AS) compares Mem_Alloc between student and ideal solution.

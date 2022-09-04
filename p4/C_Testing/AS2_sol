@@ -1,0 +1,13 @@
+************************************** Block List ***************************************
+   Id Status          Header         Pointer Size_Alloc Block Size Payload Padding Header
+    1  alloc  0x563a739042a8  0x563a739042b0         65         64      50       6      8
+    2   free  0x563a739042e8  0x563a739042f0       1536       1536    1528       0      8
+    3   last  0x563a739048e8  0x563a739048f0          1          8       0       0      8
+*****************************************************************************************
+    Total Free Size 1528
+    Total Allocated Size 50
+    Total Header Size 24
+    Total Padding Size 6
+    Total_Size 1608
+
+
