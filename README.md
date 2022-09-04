@@ -13,7 +13,7 @@ Projects from CS354
 ## Project 4 (p4): Memory Allocator
 -  Reading a csv file with information about popular movies and printing that data in a nicely formatted table
 
-## Project 5 (p5): Assembly Language Programming
+## Project 5 (p5): Assembly Language Programming (x86-64)
 -  Reading a csv file with information about popular movies and printing that data in a nicely formatted table
 
 ## Project 6 (p6): Cache Memory
